@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-gray-50">
+    <button onclick="window.location.href='/'"
+      class="mt-6 ml-4 flex items-center gap-2 px-4 py-2 rounded bg-blue-500 hover:bg-blue-700 text-white font-semibold shadow transition cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+      Powrót
+    </button>
+    <div id="app"></div>
+    <script type="module" src="/login/main.js"></script>
+  </body>
+</html>
