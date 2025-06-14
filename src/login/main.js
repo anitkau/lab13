@@ -30,7 +30,7 @@ function main() {
     if (error) {
       document.getElementById('login-error').textContent = error.message;
     } else {
-      window.location.href = '/';
+      window.location.href = '../../';
     }
   };
 }
