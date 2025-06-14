@@ -1,14 +1,12 @@
 const supabaseUrl = 'https://ahfdcxiyyntnmcylfkqn.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFoZmRjeGl5eW50bm1jeWxma3FuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NTk2MTEsImV4cCI6MjA2MzIzNTYxMX0.bmUO6vPu8svMLE-SbuI9_Zg8XCGHrwRr9D4n-tgoaW8';
 
-// Utwórz klienta Supabase przez window.supabase z CDN
 window.supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 main();
 
 async function main() {
   const app = document.getElementById('app');
-  // Pobierz użytkownika
   while (!window.supabase) {
     await new Promise(r => setTimeout(r, 50));
   }
@@ -23,7 +21,7 @@ async function main() {
             <button id="add-article-btn" class="transition bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded shadow mr-2 mb-2 sm:mb-0 cursor-pointer">Dodaj artykuł</button>
             <button id="logout-btn" class="transition bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded shadow cursor-pointer">Wyloguj</button>
           ` : `
-            <a href="/login/" class="transition bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded shadow">Zaloguj się</a>
+            <a href="src/login/" class="transition bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded shadow">Zaloguj się</a>
           `}
         </nav>
       </header>
@@ -34,7 +32,6 @@ async function main() {
 
   loadArticles(user);
 
-  // Obsługa przycisku dodawania artykułu
   if (user) {
     document.getElementById('add-article-btn').onclick = () => showAddModal(user);
     document.getElementById('logout-btn').onclick = async () => {

@@ -7,19 +7,21 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const inputs = [];
 
-for await (const entry of glob('src/**/*.html')) {
+for await (const entry of glob('**/*.html')) {
   console.log(resolve(__dirname, entry));
   inputs.push(resolve(__dirname, entry));
 }
 
 export default defineConfig({
   plugins: [],
-
-  root: resolve(__dirname, 'src'),
+  root: __dirname,
   build: {
     emptyOutDir: true,
     rollupOptions: {
-      input: inputs,
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        login: resolve(__dirname, 'login/index.html'),
+      },
     },
     outDir: resolve(__dirname, 'dist'),
   },
